@@ -26,7 +26,7 @@ class MyHomePage extends StatelessWidget {
     ),
     Transaction(
       id: 't2',
-      title: 'weekly Groceries',
+      title: 'Weekly Groceries',
       amount: 16.53,
       date: DateTime.now(),
     ),
@@ -51,7 +51,50 @@ class MyHomePage extends StatelessWidget {
             Column(
               children: transactions.map((tx) {
                 return Card(
-                  child: Text(tx.title),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 15.0,
+                          horizontal: 20.0,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.purpleAccent,
+                            width: 2,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(10.0),
+                        child: Text(
+                          tx.amount.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                            color: Colors.purple,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.0,
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                          Text(
+                            tx.date.toString(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 );
               }).toList(),
             ),
