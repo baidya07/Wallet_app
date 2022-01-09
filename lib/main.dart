@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './widgets/transaction_list.dart';
+import './widgets/user_transactions.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,37 +47,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 10.0,
             ),
           ),
-          Card(
-            elevation: 5.0,
-            child: Container(
-              padding: EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
-                    controller: titleController,
-                    // onChanged: (val) {
-                    //   titleInput = val;
-                    // },
-                  ),
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Amount'),
-                    controller: amountController,
-                    // onChanged: (val) => amountInput = val,
-                  ),
-                  FlatButton(
-                    child: Text('Add Transaction'),
-                    textColor: Colors.purple,
-                    onPressed: () {
-                      print(titleController.text);
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          TransactionList()
+          UserTransactions()
         ],
       ),
     );
